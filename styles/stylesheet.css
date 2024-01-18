@@ -1,101 +1,56 @@
-* {
-  box-sizing: border-box;
+body {
+  font-size: 30px;
+  margin: 0;
 }
 
 main {
-  border: 5px solid #000;
   width: 900px;
   height: 900px;
+  border: 5px solid #000;
+  display: grid;
+  justify-content: center;
+  grid-template: 50px 800px 50px/50px 800px 50px;
+  grid-template-areas: ". top ." "left middle right" ". bottom .";
 }
-
-.chess_container {
-  height: 800px;
-  width: 800px;
-  border: 3px solid black;
-  padding-left: 5px;
-  padding-top: 5px;
-  display: inline-block;
-  margin-top: 15px;
-  margin-left: 10px;
+main .top {
+  grid-area: top;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  align-content: center;
+  justify-items: center;
 }
-
-.black {
-  width: 100px;
-  height: 100px;
-  background-color: black;
-  display: inline-block;
-  margin: -5px 0 0 -5px;
+main .left {
+  grid-area: left;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  justify-content: center;
+  align-items: center;
 }
-
-.white {
-  width: 100px;
-  height: 100px;
-  background-color: white;
-  display: inline-block;
-  margin: -5px 0 0 -5px;
+main .chess-board {
+  grid-area: middle;
+  display: grid;
+  grid-template: repeat(8, 1fr)/repeat(8, 1fr);
+  border: 3px solid #000;
 }
-
-.container_top {
-  display: block;
-  width: 800px;
-  height: 30px;
-  text-align: center;
-  margin-left: -5px;
-  margin-bottom: -5px;
+main .chess-board div:nth-child(odd) {
+  background-color: #000;
 }
-
-.top {
-  font-size: 30px;
-  display: inline-block;
-  text-align: center;
-  margin-left: 75px;
+main .chess-board span:nth-child(even) {
+  background-color: #000;
 }
-
-.container_left {
-  display: inline-block;
-  width: 30px;
-  margin-top: -835px;
-  text-align: center;
-  vertical-align: middle;
+main .right {
+  grid-area: right;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+  justify-content: center;
+  align-items: center;
 }
-
-.left {
-  font-size: 30px;
-  margin-top: 64px;
-  display: inline-block;
-  text-align: center;
-}
-
-.container_right {
-  display: inline-block;
-  width: 30px;
-  margin-top: -835px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.right {
-  font-size: 30px;
-  margin-top: 64px;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.container_bottom {
-  display: inline-block;
-  width: 800px;
-  height: 30px;
-  text-align: center;
-  vertical-align: middle;
-  margin-bottom: -30px;
-}
-
-.bottom {
-  font-size: 30px;
-  display: inline-block;
-  text-align: center;
-  margin-left: 75px;
+main .bottom {
+  grid-area: bottom;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  align-content: center;
+  justify-items: center;
 }
 
 /*# sourceMappingURL=stylesheet.css.map */
